@@ -1,5 +1,6 @@
 # Messenger
 A headless browser window for Facebook's [Messenger.com](https://messenger.com).
+![Screenshot](screenshot.png)
 
 ## Why?
 [Messenger.com](https://messenger.com) is really great if you use mostly only the chat functionality of Facebook. Giving it a headless browser opens a lot of possibilities, like native notifications and better OS integration. That is the main goal of this project.
