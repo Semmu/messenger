@@ -8,3 +8,4 @@ Exec=/opt/messenger/messenger.py
 Name=Messenger
 Comment=Standalone window for the Facebook Messenger
 Icon=/opt/messenger/messenger_square.svg
+Categories=Internet;Messaging;Social;
