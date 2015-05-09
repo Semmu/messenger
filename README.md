@@ -18,7 +18,10 @@ A headless browser window for Facebook's [Messenger.com](https://messenger.com).
 ## TODO
 * allow only one instance running (via dbus or GtkApplication)
 * native desktop notifications
-* smooth scrolling
+* inject smooth scrolling and don't break the current javascript scroll events
+* attachment download support
+* memory leak (?) fix
+* Gtk headerbar support
 
 ## Installation
 Clone this repository into /opt/messenger (filenames are hardcoded currently)
