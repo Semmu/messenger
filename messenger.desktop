@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/messenger/messenger.py
+Name=Messenger
+Comment=Standalone window for the Facebook Messenger
+Icon=/opt/messenger/messenger_square.svg
