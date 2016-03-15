@@ -26,9 +26,7 @@ A headless browser window for Facebook's [Messenger.com](https://messenger.com).
 * launcher quicklist
 
 ## Installation
-Clone this repository into `/opt/messenger/` (referenced filenames are hardcoded currently)
-
-Optional: copy `/opt/messenger/messenger.desktop` to `/usr/share/applications/` and make it executable.
+Download the source by cloning or something, then run the install script `INSTALL` as superuser.
 
 ## Contribution
 Feel free to report bugs, fork the repo, etc. Also I would really appreciate your help if you are great in Javascript and can backtrack how Messenger.com works, so we can modify its behaviour for a better OS integration.
