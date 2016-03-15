@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import sys
 import webbrowser
 from gi.repository import Gtk, Gdk, WebKit, Soup
@@ -13,7 +14,11 @@ class Messenger(Gtk.Window):
 		self.set_size_request(800, 600)
 		self.set_icon_from_file("/opt/messenger/messenger.svg")
 
-		cookiejar = Soup.CookieJarText.new("/opt/messenger/.cookies.txt", False)
+		if not os.path.exists(os.path.expanduser("~/.messenger")) or not os.path.isdir(os.path.expanduser("~/.messenger")):
+			os.makedirs(os.path.expanduser("~/.messenger"))
+			open(os.path.expanduser("~/.messenger/cookies.txt"), "a").close()
+
+		cookiejar = Soup.CookieJarText.new(os.path.expanduser("~/.messenger/cookies.txt"), False)
 		cookiejar.set_accept_policy(Soup.CookieJarAcceptPolicy.ALWAYS)
 		session = WebKit.get_default_session()
 		session.add_feature(cookiejar)
@@ -43,7 +48,8 @@ class Messenger(Gtk.Window):
 		print(msg)
 
 	def load_finished(self, view, frame):
-		self.webview.execute_script(open("/opt/messenger/inject.js", "r").read())
+		pass
+		# self.webview.execute_script(open("/opt/messenger/inject.js", "r").read())
 
 	def key_pressed(self, widget, event):
 		if (event.keyval == Gdk.KEY_F5):

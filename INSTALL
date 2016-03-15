@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ "$UID" -ne 0 ]
+then
+    echo "Please execute this script as root (e.g. with sudo)! Install aborted."
+    exit 1
+fi
+
+DIR="/opt/messenger"
+FILES=("messenger.py" "messenger.desktop" "messenger.svg" "messenger_square.svg")
+
+if [ -d $DIR ]
+then
+    echo "${DIR} already exists, deleting contents."
+    rm -rf ${DIR}
+fi
+
+mkdir $DIR
+echo "Directory ${DIR} created."
+
+echo "Copying files."
+for a_file in ${FILES[*]}
+do
+    cp $a_file $DIR
+done
+
+echo "Setting permissions."
+chmod +x "${DIR}/messenger.py"
+chmod +x "${DIR}/messenger.desktop"
+
+echo "Copying application shortcut."
+if [ -e /usr/share/applications/messenger.desktop ]
+then
+    rm /usr/share/applications/messenger.desktop
+fi
+
+ln -s "${DIR}/messenger.desktop" /usr/share/applications
